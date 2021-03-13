@@ -1,82 +1,51 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import logo from '../img/assets/Logos/logo_name.png';
+import logo from '../img/assets/Logos/reflektor_icon.png';
+import { StaticImage } from 'gatsby-plugin-image';
 
-const Navbar = class extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      active: false,
-      navBarActiveClass: ''
-    };
-  }
-
-  toggleHamburger = () => {
-    // toggle the active boolean in the state
-    this.setState(
-      {
-        active: !this.state.active
-      },
-      // after state has been updated,
-      () => {
-        // set the class in state for the navbar accordingly
-        this.state.active
-          ? this.setState({
-              navBarActiveClass: 'is-active'
-            })
-          : this.setState({
-              navBarActiveClass: ''
-            });
-      }
-    );
-  };
-
-  render() {
-    return (
-      <nav
-        className="navbar is-transparent"
-        role="navigation"
-        aria-label="main-navigation"
-      >
-        <div className="container">
-          <div className="navbar-brand">
-            <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
-            </Link>
-            {/* Hamburger menu */}
-            <div
-              className={`navbar-burger burger ${this.state.navBarActiveClass}`}
-              data-target="navMenu"
-              onClick={() => this.toggleHamburger()}
-            >
-              <span />
-              <span />
-              <span />
-            </div>
-          </div>
-          <div
-            id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
-          >
-            <div className="navbar-start has-text-centered">
-              <Link className="navbar-item" to="/about">
-                About
-              </Link>
-              <Link className="navbar-item" to="/products">
-                Products
-              </Link>
-              <Link className="navbar-item" to="/blog">
-                Blog
-              </Link>
-              <Link className="navbar-item" to="/contact">
-                Contact
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
-    );
-  }
+const Logo = () => {
+  console.log('I have been called');
+  return (
+    <StaticImage
+      src={logo}
+      alt="Logo"
+      placeholder="blurred"
+      layout="fixed"
+      width={200}
+      height={200}
+    />
+  );
 };
 
-export default Navbar;
+export const NavBar = () => (
+  <header className="h-24 sm:h-32 flex items-center z-30 w-full">
+    <div className="container mx-auto px-6 flex items-center justify-between">
+      <div className="uppercase text-gray-800 dark:text-white font-black text-3xl">
+        <Logo />
+      </div>
+      <div className="flex items-center">
+        <nav className="font-sen text-gray-800 dark:text-white uppercase text-lg lg:flex items-center hidden">
+          <a
+            href="#"
+            className="py-2 px-6 flex text-indigo-500 border-b-2 border-indigo-500"
+          >
+            Home
+          </a>
+          <a href="#" className="py-2 px-6 flex hover:text-indigo-500">
+            About
+          </a>
+          <a href="#" className="py-2 px-6 flex hover:text-indigo-500">
+            Contact
+          </a>
+          <a href="#" className="py-2 px-6 flex hover:text-indigo-500">
+            Carrer
+          </a>
+        </nav>
+        <button className="lg:hidden flex flex-col ml-4">
+          <span className="w-6 h-1 bg-gray-800 dark:bg-white mb-1"></span>
+          <span className="w-6 h-1 bg-gray-800 dark:bg-white mb-1"></span>
+          <span className="w-6 h-1 bg-gray-800 dark:bg-white mb-1"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+);

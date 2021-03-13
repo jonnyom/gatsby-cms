@@ -1,111 +1,44 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
-
-import Layout from '../components/Layout';
-import Features from '../components/Features';
-import BlogRoll from '../components/BlogRoll';
+import Img from 'gatsby-image';
+import Footer from '../components/Footer';
+import { NavBar } from '../components/NavBar';
+import StyledBackgroundSection from '../components/BackgroundImg';
 
 export const IndexPageTemplate = ({
   image,
   title,
   heading,
   subheading,
-  mainpitch,
+  callToAction,
   description,
   intro
 }) => (
-  <div>
-    <div
-      className="full-width-image margin-top-0"
-      style={{
-        backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`,
-        backgroundPosition: `top left`,
-        backgroundAttachment: `fixed`
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          height: '150px',
-          lineHeight: '1',
-          justifyContent: 'space-around',
-          alignItems: 'left',
-          flexDirection: 'column'
-        }}
-      >
-        <h1
-          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-          style={{
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em'
-          }}
-        >
+  <main className="dark:bg-gray-800 bg-white relative overflow-hidden h-screen">
+    <Img
+      fluid={image.childImageSharp.fluid}
+      className="absolute h-full w-full object-cover"
+    />
+    <div className="container mx-auto px-6 flex flex-col justify-between items-center relative py-8">
+      <div className="flex flex-col">
+        <h1 className="font-light w-full uppercase text-center text-4xl sm:text-5xl dark:text-white text-gray-800">
           {title}
         </h1>
-        <h3
-          className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-          style={{
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em'
-          }}
-        >
+        <h2 className="font-light max-w-2xl mx-auto w-full text-xl dark:text-white text-gray-500 text-center py-8">
           {subheading}
-        </h3>
-      </div>
-    </div>
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="section">
-          <div className="columns">
-            <div className="column is-10 is-offset-1">
-              <div className="content">
-                <div className="content">
-                  <div className="tile">
-                    <h1 className="title">{mainpitch.title}</h1>
-                  </div>
-                  <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
-                  </div>
-                </div>
-                <div className="columns">
-                  <div className="column is-12">
-                    <h3 className="has-text-weight-semibold is-size-2">
-                      {heading}
-                    </h3>
-                    <p>{description}</p>
-                  </div>
-                </div>
-                <Features gridItems={intro.blurbs} />
-                <div className="columns">
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/products">
-                      See all products
-                    </Link>
-                  </div>
-                </div>
-                <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
-                  </h3>
-                  <BlogRoll />
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/blog">
-                      Read more
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        </h2>
+        <div className="flex items-center justify-center mt-4">
+          <a
+            href="#contact-me"
+            className="uppercase py-2 px-4 bg-gray-800 border-2 border-transparent text-white text-md mr-4 hover:bg-gray-900"
+          >
+            {callToAction}
+          </a>
         </div>
       </div>
-    </section>
-  </div>
+    </div>
+  </main>
 );
 
 IndexPageTemplate.propTypes = {
@@ -113,7 +46,7 @@ IndexPageTemplate.propTypes = {
   title: PropTypes.string,
   heading: PropTypes.string,
   subheading: PropTypes.string,
-  mainpitch: PropTypes.object,
+  callToAction: PropTypes.string,
   description: PropTypes.string,
   intro: PropTypes.shape({
     blurbs: PropTypes.array
@@ -124,17 +57,19 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
 
   return (
-    <Layout>
+    <>
+      <NavBar />
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
+        callToAction={frontmatter.callToAction}
         description={frontmatter.description}
         intro={frontmatter.intro}
       />
-    </Layout>
+      <Footer />
+    </>
   );
 };
 
@@ -162,25 +97,8 @@ export const pageQuery = graphql`
         }
         heading
         subheading
-        mainpitch {
-          title
-          description
-        }
+        callToAction
         description
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            text
-          }
-          heading
-          description
-        }
       }
     }
   }

@@ -4,8 +4,16 @@ module.exports = {
     description: 'Selina Coachin'
   },
   plugins: [
+    'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-background-image',
+      options: {
+        // add your own characters to escape, replacing the default ':/'
+        specialChars: '/:'
+      }
+    },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -28,6 +36,7 @@ module.exports = {
         name: 'images'
       }
     },
+    'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
