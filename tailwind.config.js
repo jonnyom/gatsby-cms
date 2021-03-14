@@ -15,6 +15,14 @@ module.exports = {
   },
   theme: {
     extend: {
+      colors: {
+        primary: 'var(--primary)',
+        secondary: 'var(--secondary)',
+        main: 'var(--main)',
+        background: 'var(--background)',
+        header: 'var(--header)',
+        accent: 'var(--accent)'
+      },
       backgroundImage: (theme) => ({
         check: "url('/icons/check.svg')",
         landscape: "url('/images/landscape/2.jpg')"
