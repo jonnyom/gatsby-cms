@@ -11,10 +11,14 @@ export const IndexPageTemplate = ({
   callToAction
 }) => (
   <div className="dark:bg-gray-800 bg-white relative overflow-hidden h-screen">
-    <Img
-      fluid={image.childImageSharp.fluid}
-      className="absolute h-full w-full object-cover"
-    />
+    {image.childImageSharp ? (
+      <Img
+        fluid={image.childImageSharp.fluid}
+        className="absolute h-full w-full object-cover"
+      />
+    ) : (
+      <img src={image} className="absolute h-full w-full object-cover" />
+    )}
 
     <div className="container mx-auto px-6 flex flex-col justify-between relative py-8">
       <NavBar />
