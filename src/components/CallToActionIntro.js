@@ -1,17 +1,17 @@
 import React from 'react';
 
 const CallToActionIntro = ({ title, subheading, callToAction }) => (
-  <div class="items-center mx-auto px-6 md:px-12 relative flex">
-    <div class="lg:w-3/5 xl:w-2/5 flex flex-col items-start relative z-10">
-      <h1 class="font-bold text-5xl sm:text-6xl text-gray-400 leading-tight mt-4">
+  <div class="container mx-auto px-6 md:px-12 relative z-10 flex items-center py-32 xl:py-40">
+    <div class="w-full flex flex-col items-center relative z-10">
+      <h1 class="font-extrabold text-7xl text-center sm:text-8xl text-white leading-tight mt-4">
         {title}
       </h1>
-      <h2 class="font-bold text-5xl sm:text-6xl text-secondary leading-tight mt-4">
+      <h2 class="font-bold text-5xl sm:text-6xl text-center text-secondary leading-tight mt-4">
         {subheading}
       </h2>
       <a
         href="#"
-        class="block bg-primary hover:bg-secondary py-3 px-4 rounded-lg text-lg text-gray-100 font-bold uppercase mt-10"
+        class="block bg-gray-800 hover:bg-gray-900 py-3 px-4 text-lg text-white font-bold uppercase mt-10"
       >
         {callToAction}
       </a>

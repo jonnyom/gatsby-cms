@@ -10,25 +10,32 @@ export const IndexPageTemplate = ({
   subheading,
   callToAction
 }) => (
-  <div className="dark:bg-gray-800 bg-white relative overflow-hidden h-screen">
-    {image.childImageSharp ? (
-      <Img
-        fluid={image.childImageSharp.fluid}
-        className="absolute h-full w-full object-cover"
-      />
-    ) : (
-      <img src={image} className="absolute h-full w-full object-cover" />
-    )}
+  <>
+    <NavBar />
 
-    <div className="container mx-auto px-6 flex flex-col justify-between relative py-8">
-      <NavBar />
-      <CallToActionIntro
-        title={title}
-        subheading={subheading}
-        callToAction={callToAction}
-      />
+    <div className="dark:bg-gray-800 bg-white relative overflow-hidden h-screen">
+      {image.childImageSharp ? (
+        <Img
+          fluid={image.childImageSharp.fluid}
+          className="bg-opacity-25 absolute h-full w-full object-cover"
+        />
+      ) : (
+        <img
+          src={image}
+          className="bg-opacity-25 absolute h-full w-full object-cover"
+        />
+      )}
+      <div class="inset-0 bg-black opacity-30 absolute"></div>
+
+      <div className="container mx-auto px-6 flex flex-col justify-between relative py-8">
+        <CallToActionIntro
+          title={title}
+          subheading={subheading}
+          callToAction={callToAction}
+        />
+      </div>
     </div>
-  </div>
+  </>
 );
 
 IndexPageTemplate.propTypes = {
