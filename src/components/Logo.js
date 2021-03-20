@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../img/assets/Logos/reflektor_icon_small.png';
+import logo from '../img/assets/Logos/reflektor_logo_small.png';
 
 const Logo = () => {
   return (
