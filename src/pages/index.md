@@ -1,10 +1,17 @@
 ---
-templateKey: index-page
-title: Fantastic coaching, fantastic coffee
 heading: Great coaching, great coffee (lol)
-image: /img/lads-with-computers.jpg
+contact:
+  heading: "123"
+  description: "123456"
 subheading: Support sustainable farming while enjoying a cup
-callToAction: A lovely call to action!
+templateKey: index-page
+pricing:
+  plans:
+    - plan: A pricing plan
+      price: One MILLION DOLLARs
+      description: Good
+  heading: Monet
+  description: Monies
 intro:
   blurbs:
     - image: /img/coffee.png
@@ -40,6 +47,11 @@ intro:
     java’s origin and support the farmers that grew it. We take coffee
     production, roasting and brewing seriously and we’re glad to pass that
     knowledge to anyone. This is an edit via identity...
+title: Fantastic coaching, fantastic coffee
+callToAction: A lovely call to action!
+about:
+  title: Here is a message about me
+  description: About me
 main:
   heading: Great coffee with no compromises
   description: >
@@ -56,4 +68,6 @@ main:
   image3:
     alt: Coffee beans
     image: /img/products-grid1.jpg
+image: /img/lads-with-computers.jpg
+description: Money
 ---
