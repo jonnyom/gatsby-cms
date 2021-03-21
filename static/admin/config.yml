@@ -12,9 +12,9 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'src/pages/blog'
+  - name: 'coaching-tips'
+    label: 'Coaching Tips'
+    folder: 'src/pages/coaching-tips'
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
