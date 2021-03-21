@@ -4,6 +4,8 @@ import { kebabCase } from 'lodash';
 import { Helmet } from 'react-helmet';
 import { graphql, Link } from 'gatsby';
 import Content, { HTMLContent } from '../components/Content';
+import { Layout } from '../components';
+import Img from 'gatsby-image';
 
 export const BlogPostTemplate = ({
   content,
@@ -11,21 +13,43 @@ export const BlogPostTemplate = ({
   description,
   tags,
   title,
-  helmet
+  helmet,
+  date,
+  image
 }) => {
   const PostContent = contentComponent || Content;
+  const featuredImgFluid = image && image.childImageSharp.fluid;
 
   return (
-    <section className="section">
+    <div className="md:container md:mx-auto leading-normal tracking-normal">
       {helmet || ''}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{description}</p>
-            <PostContent content={content} />
+      <div className="text-center mx-0 sm:mx-6 pt-16 md:pt-32">
+        {date && (
+          <p className="text-sm md:text-base text-secondary font-bold">
+            {date}
+          </p>
+        )}
+        <h1 className="font-bold break-normal text-center text-primary text-2xl md:text-5xl">
+          {title}
+        </h1>
+      </div>
+
+      <div className="container max-w-5xl mx-auto -mt-32">
+        <div className="mx-0 sm:mx-6">
+          <div className="bg-white w-full p-8 md:p-24 text-xl md:text-2xl text-gray-800 leading-normal">
+            <br />
+            <br />
+            <p className="text-2xl md:text-3xl mb-5">{description}</p>
+            {featuredImgFluid && (
+              <Img
+                fluid={featuredImgFluid}
+                className="container w-full max-w-6xl mx-auto bg-white bg-cover mt-8 rounded"
+              />
+            )}
+            <PostContent
+              content={content}
+              className="mt-8 mb-16 prose lg:prose-lg xl:prose-xl"
+            />
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
                 <h4>Tags</h4>
@@ -41,7 +65,7 @@ export const BlogPostTemplate = ({
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
@@ -50,29 +74,35 @@ BlogPostTemplate.propTypes = {
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
-  helmet: PropTypes.object
+  helmet: PropTypes.object,
+  date: PropTypes.string,
+  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string])
 };
 
-const BlogPost = ({ data }) => {
+const BlogPost = ({ data, location }) => {
   const { markdownRemark: post } = data;
 
   return (
-    <BlogPostTemplate
-      content={post.html}
-      contentComponent={HTMLContent}
-      description={post.frontmatter.description}
-      helmet={
-        <Helmet titleTemplate="%s | Blog">
-          <title>{`${post.frontmatter.title}`}</title>
-          <meta
-            name="description"
-            content={`${post.frontmatter.description}`}
-          />
-        </Helmet>
-      }
-      tags={post.frontmatter.tags}
-      title={post.frontmatter.title}
-    />
+    <Layout location={location}>
+      <BlogPostTemplate
+        content={post.html}
+        contentComponent={HTMLContent}
+        description={post.frontmatter.description}
+        helmet={
+          <Helmet titleTemplate="%s | Blog">
+            <title>{`${post.frontmatter.title}`}</title>
+            <meta
+              name="description"
+              content={`${post.frontmatter.description}`}
+            />
+          </Helmet>
+        }
+        image={post.frontmatter.featuredimage}
+        tags={post.frontmatter.tags}
+        title={post.frontmatter.title}
+        date={post.frontmatter.date}
+      />
+    </Layout>
   );
 };
 
@@ -93,6 +123,13 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         description
+        featuredimage {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         tags
       }
     }

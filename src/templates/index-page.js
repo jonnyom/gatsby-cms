@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import { CallToActionIntro, Footer, NavBar } from '../components';
+import { CallToActionIntro, Layout } from '../components';
 
 export const IndexPageTemplate = ({
   image,
@@ -10,32 +10,28 @@ export const IndexPageTemplate = ({
   subheading,
   callToAction
 }) => (
-  <>
-    <NavBar />
+  <div className="dark:bg-gray-800 bg-white relative overflow-hidden h-screen">
+    {image.childImageSharp ? (
+      <Img
+        fluid={image.childImageSharp.fluid}
+        className="bg-opacity-25 absolute h-full w-full object-cover"
+      />
+    ) : (
+      <img
+        src={image}
+        className="bg-opacity-25 absolute h-full w-full object-cover"
+      />
+    )}
+    <div className="inset-0 bg-black opacity-30 absolute"></div>
 
-    <div className="dark:bg-gray-800 bg-white relative overflow-hidden h-screen">
-      {image.childImageSharp ? (
-        <Img
-          fluid={image.childImageSharp.fluid}
-          className="bg-opacity-25 absolute h-full w-full object-cover"
-        />
-      ) : (
-        <img
-          src={image}
-          className="bg-opacity-25 absolute h-full w-full object-cover"
-        />
-      )}
-      <div class="inset-0 bg-black opacity-30 absolute"></div>
-
-      <div className="container mx-auto px-6 flex flex-col justify-between relative py-8">
-        <CallToActionIntro
-          title={title}
-          subheading={subheading}
-          callToAction={callToAction}
-        />
-      </div>
+    <div className="container mx-auto px-6 flex flex-col justify-between relative py-8">
+      <CallToActionIntro
+        title={title}
+        subheading={subheading}
+        callToAction={callToAction}
+      />
     </div>
-  </>
+  </div>
 );
 
 IndexPageTemplate.propTypes = {
@@ -50,11 +46,11 @@ IndexPageTemplate.propTypes = {
   })
 };
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, location }) => {
   const { frontmatter } = data.markdownRemark;
 
   return (
-    <>
+    <Layout location={location}>
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
@@ -64,8 +60,7 @@ const IndexPage = ({ data }) => {
         description={frontmatter.description}
         intro={frontmatter.intro}
       />
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

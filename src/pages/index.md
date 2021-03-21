@@ -1,8 +1,8 @@
 ---
 templateKey: index-page
 title: Fantastic coaching, fantastic coffee
-image: /img/assets/unsplash/computers.jpg
 heading: Great coaching, great coffee (lol)
+image: /img/assets/unsplash/computers.jpg
 subheading: Support sustainable farming while enjoying a cup
 callToAction: A lovely call to action!
 intro:

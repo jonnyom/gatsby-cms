@@ -1,17 +1,10 @@
 import React from 'react';
-import { BlogRoll, NavBar } from '../../components';
+import { BlogRoll, Layout } from '../../components';
 
-const BlogIndexPage = () => (
-  <>
-    <NavBar />
-    <section className="section">
-      <div className="container">
-        <div className="content">
-          <BlogRoll />
-        </div>
-      </div>
-    </section>
-  </>
+const BlogIndexPage = ({ location }) => (
+  <Layout location={location}>
+    <BlogRoll />
+  </Layout>
 );
 
 export default BlogIndexPage;

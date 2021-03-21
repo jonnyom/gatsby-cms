@@ -4,7 +4,6 @@ import { Link, graphql, StaticQuery } from 'gatsby';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
 
 const BlogPreview = ({ post }) => {
-  console.log(post);
   return (
     <div class="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
       <a href="#" class="w-full block h-full">

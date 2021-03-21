@@ -2,8 +2,11 @@ import React from 'react';
 import Logo from './Logo';
 import { Link } from 'gatsby';
 
-const NavBar = () => {
-  const [active, setActive] = React.useState('home');
+const NavBar = ({ location }) => {
+  const currentPath = location.href
+    ? new URL(location.href).pathname.split('/')[1]
+    : undefined;
+  const [active, setActive] = React.useState(currentPath || 'home');
   const activeTab = 'text-primary border-b-2 border-primary';
   const inactiveTab = 'text-secondary hover:text-primary';
 
@@ -17,13 +20,13 @@ const NavBar = () => {
         </div>
         <div className="flex items-center">
           <nav className="font-sen text-gray-800 dark:text-white uppercase text-lg lg:flex items-center hidden">
-            <a
-              href="#home"
+            <Link
+              to="/"
               className={`py-2 px-6 flex ${checkActive('home')}`}
               onClick={() => setActive('home')}
             >
               Home
-            </a>
+            </Link>
             <a
               href="#about"
               className={`py-2 px-6 flex ${checkActive('about')}`}
