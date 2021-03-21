@@ -13,12 +13,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: 'var(--primary)',
-        secondary: 'var(--secondary)',
-        main: 'var(--main)',
-        background: 'var(--background)',
-        header: 'var(--header)',
-        accent: 'var(--accent)'
+        primary: '#25adaf',
+        secondary: '#296364',
+        main: '#718096',
+        background: '#fff',
+        header: '#1a1417',
+        accent: '#2d3748'
       },
       backgroundImage: (theme) => ({
         check: "url('/icons/check.svg')",
