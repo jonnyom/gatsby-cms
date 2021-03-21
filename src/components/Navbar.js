@@ -6,7 +6,8 @@ const NavBar = ({ location }) => {
   const currentPath = location.href
     ? new URL(location.href).pathname.split('/')[1]
     : undefined;
-  const [active, setActive] = React.useState(currentPath || 'home');
+  const currentPage = currentPath === 'tags' ? 'coaching-tips' : currentPath;
+  const [active, setActive] = React.useState(currentPage || 'home');
   const activeTab = 'text-primary border-b-2 border-primary';
   const inactiveTab = 'text-secondary hover:text-primary';
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { kebabCase } from 'lodash';
 import { Helmet } from 'react-helmet';
 import { graphql, Link } from 'gatsby';
 import Content, { HTMLContent } from '../components/Content';
 import { Layout } from '../components';
+import { kebabCase } from 'lodash';
 import Img from 'gatsby-image';
 
 export const BlogPostTemplate = ({
@@ -53,13 +53,16 @@ export const BlogPostTemplate = ({
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
                 <h4>Tags</h4>
-                <ul className="taglist">
-                  {tags.map((tag) => (
-                    <li key={tag + `tag`}>
+                {tags.map((tag, index) => (
+                  <div
+                    className="flex flex-row justify-starts items-center mt-4"
+                    key={index}
+                  >
+                    <div className="px-2 py-1 text-base rounded text-white hover:bg-secondary bg-primary font-medium">
                       <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
+                    </div>
+                  </div>
+                ))}
               </div>
             ) : null}
           </div>
