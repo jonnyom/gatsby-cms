@@ -1,5 +1,7 @@
 import React from 'react';
 import Logo from './Logo';
+import { Link } from 'gatsby';
+
 const NavBar = () => {
   const [active, setActive] = React.useState('home');
   const activeTab = 'text-primary border-b-2 border-primary';
@@ -36,13 +38,13 @@ const NavBar = () => {
             >
               Contact
             </a>
-            <a
-              href="#coaching-tips"
+            <Link
+              to="/coaching-tips"
               className={`py-2 px-6 flex ${checkActive('coaching-tips')}`}
               onClick={() => setActive('coaching-tips')}
             >
               Coaching Tips
-            </a>
+            </Link>
           </nav>
           <button className="lg:hidden flex flex-col ml-4">
             <span className="w-6 h-1 bg-gray-800 dark:bg-white mb-1"></span>
