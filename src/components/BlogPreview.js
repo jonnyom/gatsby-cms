@@ -36,7 +36,7 @@ const BlogPreview = ({ post }) => {
             {post.frontmatter.tags &&
               post.frontmatter.tags.map((tag, index) => (
                 <div
-                  className="text-xs mr-2 py-1.5 px-4 text-gray-600 bg-blue-100 rounded-2xl mt-4"
+                  className="text-xs mr-2 py-1.5 px-4 text-white hover:bg-secondary bg-primary rounded-2xl mt-4"
                   key={index}
                 >
                   <Link to={`/tags/${kebabCase(tag)}/`}>#{tag}</Link>

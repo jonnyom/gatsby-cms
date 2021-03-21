@@ -2,7 +2,7 @@ import React from 'react';
 import Logo from './Logo';
 import { Link } from 'gatsby';
 
-const NavBar = ({ location }) => {
+const Navbar = ({ location }) => {
   const currentPath = location.href
     ? new URL(location.href).pathname.split('/')[1]
     : undefined;
@@ -61,4 +61,4 @@ const NavBar = ({ location }) => {
   );
 };
 
-export default NavBar;
+export default Navbar;
