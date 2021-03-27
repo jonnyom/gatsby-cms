@@ -1,0 +1,14 @@
+.root,
+#root,
+#docs-root {
+  --primary: #25adaf;
+  --secondary: #296364;
+  --accent: #718096;
+  --background: #fff;
+  --main: #1a1417;
+  --header: #2d3748;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
