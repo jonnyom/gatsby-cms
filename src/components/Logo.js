@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import logo from '../img/assets/Logos/reflektor_logo_small.png';
+import logo from '../img/assets/Logos/logo.svg';
 
-const Logo = () => {
+const Logo = ({ setActiveTab }) => {
   return (
-    <Link to="/">
-      <img src={logo} alt="logo" />
+    <Link to="/" onClick={() => setActiveTab('home')}>
+      <img src={logo} alt="logo" height="160px" width="160px" />
     </Link>
   );
 };

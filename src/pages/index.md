@@ -1,8 +1,5 @@
 ---
 heading: Great coaching, great coffee (lol)
-contact:
-  heading: "123"
-  description: "123456"
 subheading: Support sustainable farming while enjoying a cup
 templateKey: index-page
 pricing:
@@ -52,6 +49,14 @@ callToAction: A lovely call to action!
 about:
   title: Here is a message about me
   description: About me
+  callToAction: Testing hello!
+  breakdownList:
+    - heading: A first test
+      description: >
+        A description of this particular guy
+    - heading: A second test
+      description: >
+        Next description
 main:
   heading: Great coffee with no compromises
   description: >
@@ -68,6 +73,7 @@ main:
   image3:
     alt: Coffee beans
     image: /img/products-grid1.jpg
-image: /img/lads-with-computers.jpg
+image: /static/img/lads-with-computers.jpg
+callToActionUrl: contact
 description: Money
 ---

@@ -17,31 +17,36 @@ const Navbar = ({ location }) => {
     <header className="h-24 sm:h-22 flex items-center z-30 w-full">
       <div className="container mx-auto px-6 flex items-center justify-between">
         <div className="uppercase text-gray-800 dark:text-white font-black text-3xl">
-          <Logo />
+          <Logo setActiveTab={setActive} />
         </div>
         <div className="flex items-center">
           <nav className="font-sen text-gray-800 dark:text-white uppercase text-lg lg:flex items-center hidden">
+            {active === 'home' ? (
+              <a
+                href="#about"
+                className={`py-2 px-6 flex ${checkActive('about')}`}
+                onClick={() => {
+                  setActive('about');
+                }}
+              >
+                About
+              </a>
+            ) : (
+              <Link
+                to="/#about"
+                className={`py-2 px-6 flex ${checkActive('about')}`}
+                onClick={() => setActive('about')}
+              >
+                About
+              </Link>
+            )}
             <Link
-              to="/"
-              className={`py-2 px-6 flex ${checkActive('home')}`}
-              onClick={() => setActive('home')}
-            >
-              Home
-            </Link>
-            <a
-              href="#about"
-              className={`py-2 px-6 flex ${checkActive('about')}`}
-              onClick={() => setActive('about')}
-            >
-              About
-            </a>
-            <a
-              href="#contact"
+              to="/contact"
               className={`py-2 px-6 flex ${checkActive('contact')}`}
               onClick={() => setActive('contact')}
             >
               Contact
-            </a>
+            </Link>
             <Link
               to="/coaching-tips"
               className={`py-2 px-6 flex ${checkActive('coaching-tips')}`}

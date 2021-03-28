@@ -35,6 +35,20 @@ collections:
   - name: 'pages'
     label: 'Pages'
     files:
+      - file: 'src/pages/contact.md'
+        label: 'Contact'
+        name: 'contact'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'contact-page'
+            }
+          - { label: Title, name: title, widget: string }
+          - { label: Image, name: image, widget: image, optional: true }
+          - { label: Description, name: description, widget: text }
+          - { label: Calendly URL, name: widgetUrl, widget: string }
       - file: 'src/pages/index.md'
         label: 'Landing Page'
         name: 'index'
@@ -50,48 +64,31 @@ collections:
           - { label: Heading, name: heading, widget: string }
           - { label: 'Call To Action', name: callToAction, widget: string }
           - {
+              label: 'Call to action page (defaults to contact)',
+              name: callToActionUrl,
+              widget: string,
+              optional: true
+            }
+          - {
               label: About,
-              name: about,
+              name: aboutMe,
               widget: object,
               fields:
                 [
                   { label: Title, name: title, widget: string },
-                  { label: Description, name: description, widget: text }
-                ]
-            }
-          - { label: Description, name: description, widget: string }
-          - {
-              label: Pricing,
-              name: pricing,
-              widget: object,
-              fields:
-                [
-                  { label: Heading, name: heading, widget: string },
-                  { label: Description, name: description, widget: string },
+                  { label: Description, name: description, widget: text },
+                  { label: Call to action, name: callToAction, widget: string },
                   {
-                    label: Plans,
-                    name: plans,
+                    label: Breakdown List,
+                    name: breakdownList,
                     widget: list,
+                    optional: true,
                     fields:
                       [
-                        { label: Plan, name: plan, widget: string },
-                        { label: Price, name: price, widget: string },
-                        {
-                          label: Description,
-                          name: description,
-                          widget: string
-                        }
+                        { label: Heading, name: heading, widget: string },
+                        { label: Description, name: description, widget: text }
                       ]
                   }
                 ]
             }
-          - {
-              label: Contact,
-              name: contact,
-              widget: object,
-              fields:
-                [
-                  { label: Heading, name: heading, widget: string },
-                  { label: Description, name: description, widget: text }
-                ]
-            }
+          - { label: Description, name: description, widget: string }
