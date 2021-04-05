@@ -8,8 +8,8 @@ const BlogRoll = ({ data }) => {
 
   return (
     <div className="md:container md:mx-auto leading-normal tracking-normal">
-      <div class="header flex items-end justify-between mb-12"></div>
-      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
+      <div className="header flex items-end justify-between mb-12"></div>
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
         {posts && posts.map(({ node: post }) => <BlogPreview post={post} />)}
       </div>
     </div>
@@ -17,7 +17,7 @@ const BlogRoll = ({ data }) => {
 };
 
 const BlogIndexPage = ({ data, location }) => (
-  <Layout location={location}>
+  <Layout location={location} title={data.site.siteMetadata.title}>
     <BlogRoll data={data} />
   </Layout>
 );
@@ -26,6 +26,9 @@ BlogRoll.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array
+    }),
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({ title: PropTypes.string })
     })
   })
 };
@@ -34,6 +37,11 @@ export default BlogIndexPage;
 
 export const pageQuery = graphql`
   query BlogRollQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
       filter: { frontmatter: { templateKey: { eq: "blog-post" } } }

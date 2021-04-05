@@ -43,7 +43,10 @@ const ContactPage = ({ data, location }) => {
   const { frontmatter } = data.markdownRemark;
 
   return (
-    <Layout location={location}>
+    <Layout
+      location={location}
+      title={`Contact me | ${data.site.siteMetadata.title}`}
+    >
       <ContactPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
@@ -58,6 +61,9 @@ ContactPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.object
+    }),
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({ title: PropTypes.string })
     })
   })
 };
@@ -66,6 +72,11 @@ export default ContactPage;
 
 export const pageQuery = graphql`
   query ContactPageTemplate {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     markdownRemark(frontmatter: { templateKey: { eq: "contact-page" } }) {
       frontmatter {
         image {

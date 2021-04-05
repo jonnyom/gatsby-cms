@@ -1,7 +1,22 @@
 import React from 'react';
 import { kebabCase } from 'lodash';
-import { Helmet } from 'react-helmet';
 import { Link, graphql } from 'gatsby';
+import { Layout } from '../../components';
+
+const TagItem = ({ tag }) => (
+  <li class="border-gray-400 flex flex-row mb-2">
+    <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
+      <div class="shadow border select-none cursor-pointer bg-white dark:bg-gray-800 rounded-md flex flex-1 items-center p-4">
+        <div class="flex-1 pl-1 md:mr-16">
+          <div class="font-medium dark:text-white">{tag.fieldValue}</div>
+        </div>
+        <div class="text-gray-600 dark:text-gray-200 text-xs">
+          {tag.totalCount}
+        </div>
+      </div>
+    </Link>
+  </li>
+);
 
 const TagsPage = ({
   data: {
@@ -9,30 +24,22 @@ const TagsPage = ({
     site: {
       siteMetadata: { title }
     }
-  }
+  },
+  location
 }) => (
-  <section className="section">
-    <Helmet title={`Tags | ${title}`} />
-    <div className="container content">
-      <div className="columns">
-        <div
-          className="column is-10 is-offset-1"
-          style={{ marginBottom: '6rem' }}
-        >
-          <h1 className="title is-size-2 is-bold-light">Tags</h1>
-          <ul className="taglist">
-            {group.map((tag) => (
-              <li key={tag.fieldValue}>
-                <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-                  {tag.fieldValue} ({tag.totalCount})
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+  <Layout location={location} title={`Tags | ${title}`}>
+    <div class="container flex flex-col mx-auto ">
+      <ul class="flex flex-col">
+        {group.map((tag) => (
+          <>
+            {tag.fieldValue.length > 0 && (
+              <TagItem tag={tag} key={tag.fieldValue} />
+            )}
+          </>
+        ))}
+      </ul>
     </div>
-  </section>
+  </Layout>
 );
 
 export default TagsPage;
@@ -44,7 +51,10 @@ export const tagPageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(limit: 1000) {
+    allMarkdownRemark(
+      limit: 1000
+      sort: { fields: frontmatter___title, order: DESC }
+    ) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount

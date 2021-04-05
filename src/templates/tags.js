@@ -15,19 +15,37 @@ const TagRoute = ({ location, data, pageContext }) => {
       <Helmet title={`${tag} | ${title}`} />
       <div className="container content">
         <div className="flex justify-center">
-          <div
-            className="column is-10 is-offset-1"
-            style={{ marginBottom: '6rem' }}
-          >
-            <span className="px-2 py-1  text-base rounded text-white hover:bg-secondary bg-primary font-medium">
+          <div className="column is-10 is-offset-1 mb-20">
+            <p className="text-secondary mb-10 capitalize font-bold text-2xl">
               {tag}
-            </span>
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
+            </p>
+            <div className="mb-20 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
               {posts &&
-                posts.map(({ node: post }) => <BlogPreview post={post} />)}
+                posts.map(({ node: post }, index) => (
+                  <BlogPreview post={post} key={`blog-${index}`} />
+                ))}
             </div>
             <div>
-              <Link to="/tags/">Browse all tags</Link>
+              <Link
+                className="text-primary hover:text-secondary inline-block"
+                to="/tags/"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                  />
+                </svg>
+                Browse all tags
+              </Link>
             </div>
           </div>
         </div>

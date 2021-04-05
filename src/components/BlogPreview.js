@@ -2,10 +2,19 @@ import React from 'react';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
 import { Link } from 'gatsby';
 import { kebabCase } from 'lodash';
+import { motion } from 'framer-motion';
 
 const BlogPreview = ({ post }) => {
   return (
-    <div className="overflow-hidden shadow-lg rounded-lg h-90 w-80 md:w-80 cursor-pointer m-auto">
+    <motion.div
+      className="overflow-hidden shadow-lg rounded-lg h-90 w-80 md:w-80 cursor-pointer m-auto"
+      whileHover={{
+        scale: 1.1,
+        transition: { duration: 1 }
+      }}
+      transition={{ duration: 0.25 }}
+      drag
+    >
       <Link to={post.fields.slug} className="w-full block h-full">
         {post.frontmatter.featuredimage ? (
           <PreviewCompatibleImage
@@ -45,7 +54,7 @@ const BlogPreview = ({ post }) => {
           </div>
         </div>
       </Link>
-    </div>
+    </motion.div>
   );
 };
 
