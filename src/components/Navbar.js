@@ -80,7 +80,6 @@ const Navbar = ({ location }) => {
       className="lg:px-16 px-6 bg-white flex flex-wrap items-center lg:py-0 py-2"
       animate={{ height: isOpen ? 250 : 60 }}
       transition={{ duration: 0.5 }}
-      onAnimationStart={() => setIsAnimating(true)}
       onAnimationComplete={() => setIsAnimating(false)}
     >
       <div
@@ -89,7 +88,10 @@ const Navbar = ({ location }) => {
         <Logo setActiveTab={setActive} />
       </div>
 
-      <div className="pointer-cursor lg:hidden block">
+      <div
+        className="pointer-cursor lg:hidden block"
+        onClick={() => setIsAnimating(true)}
+      >
         <Hamburger toggled={isOpen} toggle={setIsOpen} direction="left" />
       </div>
 
