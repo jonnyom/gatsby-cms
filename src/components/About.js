@@ -38,7 +38,7 @@ const About = ({
             {callToAction && (
               <div className="w-full md:w-1/3">
                 <Link
-                  to={`/${callToActionUrl}` || '/contact'}
+                  to={`/${callToActionUrl ? callToActionUrl : 'contact'}`}
                   type="button"
                   className="py-2 px-4  bg-secondary hover:bg-primary text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                 >

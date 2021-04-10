@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: 'Hello Selina',
-    description: 'Selina Coachin'
+    title: 'Reflektor',
+    description: 'Reflektor coaching'
   },
   plugins: [
     'gatsby-plugin-image',

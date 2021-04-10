@@ -1,9 +1,6 @@
 import React from 'react';
 import Logo from './Logo';
 import { Link } from 'gatsby';
-import { useOutsideAlerter } from '../hooks/useOutsideClick';
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import { Pivot as Hamburger } from 'hamburger-react';
 
 const links = [
@@ -25,9 +22,55 @@ const links = [
   { link: 'coaching-tips', name: 'Coaching Tips', tabName: 'coaching-tips' }
 ];
 
+const NavBar = ({ location }) => {
+  const currentPath = location.href
+    ? new URL(location.href).pathname.split('/')[1]
+    : undefined;
+  const currentPage = currentPath === 'tags' ? 'coaching-tips' : currentPath;
+  const [active, setActive] = React.useState(currentPage || 'home');
+  const activeTab = 'text-primary border-b-2 border-primary';
+  const inactiveTab = 'text-secondary hover:text-primary';
+
+  const checkActive = (tab) => (active === tab ? activeTab : inactiveTab);
+  const [navbarOpen, setNavbarOpen] = React.useState(false);
+  return (
+    <>
+      <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-lightBlue-500 mb-3">
+        <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
+          <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+            <Logo setActiveTab={setActive} />
+            <button
+              className="text-secondary cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+              type="button"
+              onClick={() => setNavbarOpen(!navbarOpen)}
+            >
+              <Hamburger toggled={navbarOpen} direction="left" />
+            </button>
+          </div>
+          <div
+            className={
+              'lg:flex flex-grow items-center' +
+              (navbarOpen ? ' flex' : ' hidden')
+            }
+            id="example-navbar-danger"
+          >
+            <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
+              <NavList
+                checkActive={checkActive}
+                active={active}
+                setActive={setActive}
+              />
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </>
+  );
+};
+
 const NavList = ({ active, checkActive, setActive }) => {
   const navClass =
-    'lg:p-4 py-3 px-0 block border-b-2 border-transparent text-secondary hover:border-primary';
+    'px-3 py-2 flex items-center leading-snug block border-b-2 border-transparent text-secondary hover:border-primary';
 
   return (
     <>
@@ -61,64 +104,4 @@ const NavList = ({ active, checkActive, setActive }) => {
   );
 };
 
-const MenuDiv = styled.div`
-  ${({ isOpen }) => (isOpen ? 'display: block' : '')};
-`;
-
-const Navbar = ({ location }) => {
-  const currentPath = location.href
-    ? new URL(location.href).pathname.split('/')[1]
-    : undefined;
-  const currentPage = currentPath === 'tags' ? 'coaching-tips' : currentPath;
-  const [isOpen, setIsOpen] = React.useState(false);
-  const [active, setActive] = React.useState(currentPage || 'home');
-  const [isAnimating, setIsAnimating] = React.useState(false);
-  const activeTab = 'text-primary border-b-2 border-primary';
-  const inactiveTab = 'text-secondary hover:text-primary';
-  const wrapperRef = React.useRef(null);
-  useOutsideAlerter(wrapperRef, () => setIsOpen(false));
-
-  const checkActive = (tab) => (active === tab ? activeTab : inactiveTab);
-
-  return (
-    <motion.header
-      className="lg:px-16 px-6 bg-white flex flex-wrap items-center lg:py-0 py-2"
-      animate={{ height: isOpen ? 250 : 60 }}
-      transition={{ duration: 0.5 }}
-      onAnimationComplete={() => setIsAnimating(false)}
-    >
-      <div
-        className={`${isAnimating ? 'hidden' : ''} flex-1 flex justify-between`}
-      >
-        <Logo setActiveTab={setActive} />
-      </div>
-
-      <div
-        className="pointer-cursor lg:hidden block"
-        onClick={() => setIsAnimating(true)}
-      >
-        <Hamburger toggled={isOpen} toggle={setIsOpen} direction="left" />
-      </div>
-
-      <MenuDiv
-        className={`${
-          isOpen ? '' : 'hidden'
-        } lg:flex lg:items-center lg:w-auto w-full`}
-        isOpen={isOpen}
-        ref={wrapperRef}
-      >
-        <nav>
-          <ul className="lg:flex items-center justify-between text-base text-gray-700 pt-4 lg:pt-0">
-            <NavList
-              checkActive={checkActive}
-              active={active}
-              setActive={setActive}
-            />
-          </ul>
-        </nav>
-      </MenuDiv>
-    </motion.header>
-  );
-};
-
-export default Navbar;
+export default NavBar;

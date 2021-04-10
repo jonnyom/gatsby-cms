@@ -4,22 +4,22 @@ import { Layout } from '../components';
 
 const NotFoundPage = ({ location }) => (
   <Layout location={location}>
-    <div class="container mx-auto px-6 md:px-12 relative z-10 flex items-center py-32">
-      <div class="container mx-auto px-6 flex flex-col justify-between items-center relative">
-        <div class="flex w-full items-center justify-center space-x-12 flex-col md:flex-row mb-16 md:mb-8">
-          <h1 class="font-thin text-center text-6xl text-gray-800">
+    <div className="container mx-auto px-6 md:px-12 relative z-10 flex items-center py-32">
+      <div className="container mx-auto px-6 flex flex-col justify-between items-center relative">
+        <div className="flex w-full items-center justify-center space-x-12 flex-col md:flex-row mb-16 md:mb-8">
+          <h1 className="font-thin text-center text-6xl text-gray-800">
             Not found
           </h1>
           <Link
             to="/"
-            class="px-3 py-2 w-32 font-light transition ease-in duration-200 uppercase hover:bg-secondary hover:text-white border-b text-2xl border-secondary focus:outline-none"
+            className="px-3 py-2 w-32 font-light transition ease-in duration-200 uppercase hover:bg-secondary hover:text-white border-b text-2xl border-secondary focus:outline-none"
           >
             Go home
           </Link>
         </div>
-        <div class="block w-full mx-auto mt-6 md:mt-0 relative">
+        <div className="block w-full mx-auto mt-6 md:mt-0 relative">
           <svg
-            class="max-w-2xl m-auto"
+            className="max-w-2xl m-auto"
             viewBox="0 0 1440 1024"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

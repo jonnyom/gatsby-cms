@@ -9,7 +9,7 @@ const BlogPreview = ({ post }) => {
     <motion.div
       className="overflow-hidden shadow-lg rounded-lg h-90 w-80 md:w-80 cursor-pointer m-auto"
       whileHover={{
-        scale: 1.1,
+        scale: 1.05,
         transition: { duration: 1 }
       }}
       transition={{ duration: 0.25 }}

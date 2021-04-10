@@ -49,18 +49,17 @@ collections:
           - { label: Image, name: image, widget: image, optional: true }
           - { label: Description, name: description, widget: text }
           - { label: Calendly URL, name: widgetUrl, widget: string }
-      - file: 'src/pages/pricing.md'
-        label: 'Pricing'
-        name: 'pricing'
+      - file: 'src/pages/products.md'
+        label: 'Products'
+        name: 'products'
         fields:
           - {
               label: 'Template Key',
               name: 'templateKey',
               widget: 'hidden',
-              default: 'pricing-page'
+              default: 'products-page'
             }
           - { label: Title, name: title, widget: string }
-          - { label: Image, name: image, widget: image }
           - { label: Description, name: description, widget: text }
           - { label: 'Call To Action', name: callToAction, widget: string }
           - {
@@ -71,8 +70,7 @@ collections:
                 [
                   { label: Name, name: name, widget: string },
                   { label: Description, name: description, widget: text },
-                  { label: Amount, name: amount, widget: string },
-                  { label: Cost, name: cost, widget: string },
+                  { label: Price, name: price, widget: number },
                   {
                     label: Currency,
                     name: currency,
