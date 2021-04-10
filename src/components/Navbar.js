@@ -17,6 +17,11 @@ const links = [
     name: 'Contact',
     tabName: 'contact'
   },
+  {
+    link: 'products',
+    name: 'Products',
+    tabName: 'products'
+  },
   { link: 'coaching-tips', name: 'Coaching Tips', tabName: 'coaching-tips' }
 ];
 
