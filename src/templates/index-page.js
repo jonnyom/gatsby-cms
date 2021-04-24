@@ -8,7 +8,7 @@ import ScrollableAnchor from 'react-scrollable-anchor';
 export const IndexPageTemplate = ({
   image,
   title,
-  subheading,
+  subtitle,
   callToAction,
   callToActionUrl,
   about
@@ -31,7 +31,7 @@ export const IndexPageTemplate = ({
       <div className="container mx-auto px-6 flex flex-col justify-between relative py-8">
         <CallToActionIntro
           title={title}
-          subheading={subheading}
+          subheading={subtitle}
           callToAction={callToAction}
           callToActionUrl={callToActionUrl}
         />
@@ -42,7 +42,6 @@ export const IndexPageTemplate = ({
         <About
           header={about.title}
           description={about.description}
-          callToAction={about.callToAction}
           listElements={about.breakdownList}
           callToActionUrl={callToActionUrl}
         />
@@ -54,18 +53,12 @@ export const IndexPageTemplate = ({
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
-  heading: PropTypes.string,
-  subheading: PropTypes.string,
+  subtitle: PropTypes.string,
   callToAction: PropTypes.string,
-  description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array
-  }),
   callToActionUrl: PropTypes.string,
   about: PropTypes.shape({
     description: PropTypes.string,
     title: PropTypes.string,
-    callToAction: PropTypes.string,
     breakdownList: PropTypes.array
   })
 };
@@ -78,12 +71,9 @@ const IndexPage = ({ data, location }) => {
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
-        heading={frontmatter.heading}
-        subheading={frontmatter.subheading}
+        subtitle={frontmatter.subtitle}
         callToAction={frontmatter.callToAction}
         callToActionUrl={frontmatter.callToActionUrl}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
         about={frontmatter.about}
       />
     </Layout>
@@ -120,19 +110,13 @@ export const pageQuery = graphql`
             }
           }
         }
-        heading
-        subheading
+        subTitle
         callToAction
         callToActionUrl
-        description
         about {
           title
           description
           callToAction
-          breakdownList {
-            description
-            heading
-          }
         }
       }
     }

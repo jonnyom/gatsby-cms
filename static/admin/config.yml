@@ -46,8 +46,7 @@ collections:
               default: 'contact-page'
             }
           - { label: Title, name: title, widget: string }
-          - { label: Image, name: image, widget: image, optional: true }
-          - { label: Description, name: description, widget: text }
+          - { label: Description, name: description, widget: markdown }
           - { label: Calendly URL, name: widgetUrl, widget: string }
       - file: 'src/pages/products.md'
         label: 'Products'
@@ -70,13 +69,6 @@ collections:
                 [
                   { label: Name, name: name, widget: string },
                   { label: Description, name: description, widget: text },
-                  { label: Price, name: price, widget: number },
-                  {
-                    label: Currency,
-                    name: currency,
-                    widget: string,
-                    optional: true
-                  },
                   {
                     label: Period,
                     name: period,
@@ -110,8 +102,8 @@ collections:
               default: 'index-page'
             }
           - { label: Title, name: title, widget: string }
+          - { label: Subtitle, name: subTitle, widget: string }
           - { label: Image, name: image, widget: image }
-          - { label: Heading, name: heading, widget: string }
           - { label: 'Call To Action', name: callToAction, widget: string }
           - {
               label: 'Call to action page (defaults to contact)',
@@ -121,23 +113,17 @@ collections:
             }
           - {
               label: About,
-              name: aboutMe,
+              name: about,
               widget: object,
               fields:
                 [
                   { label: Title, name: title, widget: string },
-                  { label: Description, name: description, widget: text },
-                  { label: Call to action, name: callToAction, widget: string },
+                  { label: Description, name: description, widget: markdown },
                   {
-                    label: Breakdown List,
-                    name: breakdownList,
-                    widget: list,
-                    optional: true,
-                    fields:
-                      [
-                        { label: Heading, name: heading, widget: string },
-                        { label: Description, name: description, widget: text }
-                      ]
+                    label: Call to action,
+                    name: callToAction,
+                    widget: string,
+                    optional: true
                   }
                 ]
             }
