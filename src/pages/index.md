@@ -7,6 +7,10 @@ title: Less Stress, More Success - Existence 2021 edition
 subTitle: subtitle
 image: /static/img/lads-with-computers.jpg
 callToAction: Work with Selina
+testimonials:
+  - testimonialImage: /img/cmo-100.jpg
+  - testimonialImage: /img/chemex.jpg
+  - testimonialImage: /img/danielle-macinnes-IuLgi9PWETU-unsplash.jpeg
 about:
   title: Here is a message about me
   description: >-
@@ -24,7 +28,6 @@ about:
     * Selina McCarthy is an EMCC accredited coach with a diploma in Personal, Leadership and Executive Coaching from Kingstown College. She is also a member of EMCC Global, EMCC Ireland and the Institute of Coaching. She has a Bachelor of Commerce with German from N.U.I.G. and a Masters in International Management from UCD Smurfit Business School.\
       \
       With 12 years of experience working across organisations of varying size from large organisations like the Corporate Executive Board (now Gartner), Lidl and Zalando, to Home24, Websummit and Evervault, and running her own employer branding consultancy, she has vast experience working with organisations of varying profiles.\
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/MKunD8H3G-8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
       ![](/img/ante-hamersmit-5GbN2LeeoyY-unsplash.jpeg)
 
