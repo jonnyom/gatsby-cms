@@ -19,7 +19,7 @@ export const BlogPostTemplate = ({
   const featuredImgFluid = image && image.childImageSharp.fluid;
 
   return (
-    <div className="md:container md:mx-auto leading-normal tracking-normal ">
+    <div className="md:container md:mx-auto leading-normal tracking-normal">
       <div className="mb-10 text-center mx-0 sm:mx-6 pt-16 md:pt-32">
         {date && (
           <p className="text-sm md:text-base text-secondary font-bold">

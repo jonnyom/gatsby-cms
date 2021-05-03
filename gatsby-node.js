@@ -85,3 +85,28 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     });
   }
 };
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes, createFieldExtension } = actions;
+
+  createFieldExtension({
+    name: 'toHTML',
+    extend: () => ({
+      resolve(source) {
+        return remark().use(remarkHTML).processSync(source.body).toString();
+      }
+    })
+  });
+  const typeDefs = `
+  type MarkdownRemark implements Node {
+    frontmatter: Frontmatter
+  }
+  type Frontmatter @infer {
+    sections: [section]
+  }
+  type section @infer {
+    body: String @toHTML
+  }
+  `;
+  createTypes(typeDefs);
+};

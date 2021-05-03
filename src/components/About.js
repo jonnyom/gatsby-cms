@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import Content, { HTMLContent } from './Content';
+import { MarkdownContent } from './Content';
 
 const About = ({ header, description, callToAction, callToActionUrl }) => (
   <section>
@@ -9,7 +9,7 @@ const About = ({ header, description, callToAction, callToActionUrl }) => (
         <h2 className="items-center text-3xl lg:text-4xl font-bold font-heading dark:text-white">
           {header}
         </h2>
-        <HTMLContent
+        <MarkdownContent
           content={description}
           className="mt-8 mb-16 prose lg:prose-lg xl:prose-xl"
         />
