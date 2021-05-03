@@ -5,6 +5,15 @@ templateKey: products-page
 description: |
   Here is a great big description about why you should use these products
 callToAction: Get in touch today
+testimonials:
+  - name: Jonny
+    company: Kitman Labs
+    quote: What a great quote
+    testimonialImage: /img/jnnyom-11012021-0001.jpg
+  - name: Bob Bornemann
+    quote: Asas
+    testimonialImage: /img/blog-index.jpg
+    company: This should be optional, why isn't it
 productList:
   - name: A first product
     description: |
