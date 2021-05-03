@@ -62,6 +62,27 @@ collections:
           - { label: Description, name: description, widget: text }
           - { label: 'Call To Action', name: callToAction, widget: string }
           - {
+              label: Testimonials,
+              name: testimonials,
+              widget: list,
+              fields:
+                [
+                  { label: Name, name: name, widget: string },
+                  {
+                    label: Company,
+                    name: company,
+                    optional: true,
+                    widget: string
+                  },
+                  { label: Quote, name: quote, widget: string },
+                  {
+                    label: 'Testimonial image',
+                    name: 'testimonialImage',
+                    widget: image
+                  }
+                ]
+            }
+          - {
               label: Product List,
               name: productList,
               widget: list,
@@ -127,4 +148,3 @@ collections:
                   }
                 ]
             }
-          - { label: Description, name: description, widget: string }

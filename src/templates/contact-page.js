@@ -11,12 +11,8 @@ export const ContactPageTemplate = ({
 }) => (
   <div className="container  mx-auto flex flex-col justify-between relative py-10">
     <div className="grid grid-cols-1 md:grid-cols-2">
-      <div className="w-max">
-        <About header={title} description={description} />
-      </div>
-      <div>
-        <CalendlyWidget widgetUrl={widgetUrl} previewMode={previewMode} />
-      </div>
+      <About header={title} description={description} />
+      <CalendlyWidget widgetUrl={widgetUrl} previewMode={previewMode} />
     </div>
   </div>
 );

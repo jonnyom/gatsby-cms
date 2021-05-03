@@ -13,6 +13,7 @@ const ProductsPagePreview = ({ entry }) => {
           description={data.description}
           productList={data.productList}
           callToAction={data.callToAction}
+          testimonials={data.testimonials}
         />
       </Layout>
     );

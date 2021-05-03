@@ -16,3 +16,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  aboutPage img {
+    border-radius: 50%;
+  }
+}

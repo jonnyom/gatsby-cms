@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { motion } from 'framer-motion';
 import { Layout, About } from '../components';
+import PivotTestimonial from '../components/Testimonial';
 
 const ProductListItem = ({ description }) => (
   <li className="mb-3 flex items-center">
@@ -63,7 +64,8 @@ export const ProductsPageTemplate = ({
   title,
   description,
   productList,
-  callToAction
+  callToAction,
+  testimonials
 }) => (
   <div className="container mx-auto flex flex-col justify-between relative py-8">
     <div className="grid grid-cols-1">
@@ -74,6 +76,7 @@ export const ProductsPageTemplate = ({
           callToAction={callToAction}
         />
       </div>
+
       <ul className="flex items-center">
         {productList.map((product, ix) => (
           <ProductWidget
@@ -87,6 +90,7 @@ export const ProductsPageTemplate = ({
           />
         ))}
       </ul>
+      <PivotTestimonial testimonials={testimonials} />
     </div>
   </div>
 );
@@ -94,6 +98,12 @@ export const ProductsPageTemplate = ({
 ProductsPageTemplate.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
+  testimonials: PropTypes.shape({
+    name: PropTypes.string,
+    quote: PropTypes.string,
+    testimonialImage: PropTypes.oneOf([PropTypes.string, PropTypes.object]),
+    company: PropTypes.string
+  }),
   productList: PropTypes.shape({
     title: PropTypes.string,
     description: PropTypes.string,
@@ -120,6 +130,7 @@ const ProductsPage = ({ data, location }) => {
         description={frontmatter.description}
         productList={frontmatter.productList}
         callToAction={frontmatter.callToAction}
+        testimonials={frontmatter.testimonials}
       />
     </Layout>
   );
@@ -150,6 +161,18 @@ export const pageQuery = graphql`
         title
         description
         callToAction
+        testimonials {
+          name
+          company
+          quote
+          testimonialImage {
+            childImageSharp {
+              fluid(maxWidth: 2048, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
         productList {
           description
           name

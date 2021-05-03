@@ -38,10 +38,11 @@ export const IndexPageTemplate = ({
       </div>
     </div>
     <ScrollableAnchor id={'about'}>
-      <div>
+      <div className="text-gray">
         <About
           header={about.title}
           description={about.description}
+          callToAction={about.callToAction}
           listElements={about.breakdownList}
           callToActionUrl={callToActionUrl}
         />
