@@ -37,7 +37,7 @@ export const TestimonialBig = ({ testimonial, isAnimating }) => {
       className="bg-white dark:bg-gray-800 w-full mx-auto p-8"
     >
       <div className="flex items-center md:items-start flex-col md:flex-row justify-center">
-        <a href="#" className="block relative">
+        <div className="block relative">
           {testimonial.testimonialImage.childImageSharp ? (
             <Img
               fluid={testimonial.testimonialImage.childImageSharp.fluid}
@@ -49,7 +49,7 @@ export const TestimonialBig = ({ testimonial, isAnimating }) => {
               className="mx-auto object-cover rounded-full h-40 w-40 "
             />
           )}
-        </a>
+        </div>
         <div className="w-full md:w-2/3">
           <p className="text-gray-600 dark:text-white w-full md:w-2/3 m-auto text-left text-lg md:text-3xl">
             <span className="font-bold text-secondary-500">“</span>
@@ -76,9 +76,9 @@ export const TestimonialBig = ({ testimonial, isAnimating }) => {
 };
 
 export const TestimonialSmall = ({ testimonial }) => (
-  <motion.div
+  <motion.li
     layout
-    className="bg-white dark:bg-gray-800 w-72 shadow-lg mx-auto rounded-xl p-4"
+    className="inline-block sm:mt-6 md:mr-4 bg-white dark:bg-gray-800 w-72 shadow-lg mx-auto rounded-xl p-4"
   >
     <p className="text-gray-600 dark:text-white">
       <span className="font-bold text-secondary-500 text-lg">“</span>
@@ -86,8 +86,8 @@ export const TestimonialSmall = ({ testimonial }) => (
       <span className="font-bold text-secondary-500 text-lg">”</span>
     </p>
     <div className="flex items-center mt-4">
-      <a href="#" className="block relative">
-        {testimonial.testimonialImage.childImageSharp ? (
+      <div className="block relative">
+        {testimonial.testimonialImage?.childImageSharp ? (
           <Img
             fluid={testimonial.testimonialImage.childImageSharp.fluid}
             className="mx-auto object-cover rounded-full h-10 w-10 "
@@ -98,7 +98,7 @@ export const TestimonialSmall = ({ testimonial }) => (
             className="mx-auto object-cover rounded-full h-10 w-10 "
           />
         )}
-      </a>
+      </div>
       <div className="flex flex-col ml-2 justify-between">
         <span className="font-semibold text-secondary-500 text-sm">
           {testimonial.name}
@@ -110,7 +110,7 @@ export const TestimonialSmall = ({ testimonial }) => (
         )}
       </div>
     </div>
-  </motion.div>
+  </motion.li>
 );
 
 export const PivotTestimonial = ({ testimonials }) => {
@@ -134,6 +134,7 @@ export const PivotTestimonial = ({ testimonials }) => {
         layout
         animate={{ x: isAnimating ? 100 : 0 }}
         transition={{ ease: 'easeOut', duration: 2 }}
+        className="flex flex-wrap container md:mx-auto md:px-64 sm:ml-2"
       >
         {testimonials
           .filter((_, ix) => ix !== bigTestimonial)

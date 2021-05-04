@@ -71,7 +71,7 @@ collections:
                   {
                     label: Company,
                     name: company,
-                    optional: true,
+                    required: false,
                     widget: string
                   },
                   { label: Quote, name: quote, widget: string },
@@ -94,13 +94,13 @@ collections:
                     label: Period,
                     name: period,
                     widget: string,
-                    optional: true
+                    required: false
                   },
                   {
                     label: What's Included,
                     name: includedList,
                     widget: list,
-                    optional: true,
+                    required: false,
                     fields:
                       [
                         {
@@ -130,7 +130,7 @@ collections:
               label: 'Call to action page (defaults to contact)',
               name: callToActionUrl,
               widget: string,
-              optional: true
+              required: false
             }
           - {
               label: About,
@@ -144,7 +144,7 @@ collections:
                     label: Call to action,
                     name: callToAction,
                     widget: string,
-                    optional: true
+                    required: false
                   }
                 ]
             }
