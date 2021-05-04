@@ -18,6 +18,9 @@ testimonials:
     quote: This is a quote! I swear!
     testimonialImage: /img/charles-deluvio-rRWiVQzLm7k-unsplash.jpeg
     company: Hmmm
+  - name: Testing mc Testo
+    quote: No company baaaby
+    testimonialImage: /img/alina-grubnyak-uhHPgq6QFgE-unsplash.jpeg
 productList:
   - name: A first product
     description: |
