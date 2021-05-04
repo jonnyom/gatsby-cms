@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { motion } from 'framer-motion';
 import { Layout, About } from '../components';
-import PivotTestimonial from '../components/Testimonial';
+import { PivotTestimonial } from '../components/Testimonial';
 
 const ProductListItem = ({ description }) => (
   <li className="mb-3 flex items-center">
@@ -98,23 +98,27 @@ export const ProductsPageTemplate = ({
 ProductsPageTemplate.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
-  testimonials: PropTypes.shape({
-    name: PropTypes.string,
-    quote: PropTypes.string,
-    testimonialImage: PropTypes.oneOf([PropTypes.string, PropTypes.object]),
-    company: PropTypes.string
-  }),
-  productList: PropTypes.shape({
-    title: PropTypes.string,
-    description: PropTypes.string,
-    price: PropTypes.number,
-    period: PropTypes.string,
-    currency: PropTypes.string,
-    callToAction: PropTypes.string,
-    includedList: PropTypes.shape({
-      description: PropTypes.string
+  testimonials: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      quote: PropTypes.string,
+      testimonialImage: PropTypes.oneOf([PropTypes.object, PropTypes.string]),
+      company: PropTypes.string
     })
-  })
+  ),
+  productList: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      description: PropTypes.string,
+      price: PropTypes.number,
+      period: PropTypes.string,
+      currency: PropTypes.string,
+      callToAction: PropTypes.string,
+      includedList: PropTypes.shape({
+        description: PropTypes.string
+      })
+    })
+  )
 };
 
 const ProductsPage = ({ data, location }) => {
