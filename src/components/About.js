@@ -5,9 +5,11 @@ import { MarkdownContent } from './Content';
 const About = ({ header, description, callToAction, callToActionUrl }) => (
   <div className="container max-w-7xl text-gray-800 mx-auto p-4 sm:p-6 lg:p-8 bg-white dark:bg-gray-800">
     <div className="flex flex-wrap">
-      <h2 className="items-center text-3xl lg:text-4xl font-bold font-heading dark:text-white">
-        {header}
-      </h2>
+      {header && (
+        <h2 className="items-center text-3xl lg:text-4xl font-bold font-heading dark:text-white">
+          {header}
+        </h2>
+      )}
       <MarkdownContent
         content={description}
         className="text-gray-800 mt-8 mb-16 prose lg:prose-lg xl:prose-xl"

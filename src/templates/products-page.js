@@ -20,16 +20,9 @@ const ProductListItem = ({ description }) => (
   </li>
 );
 
-const ProductWidget = ({
-  heading,
-  description,
-  price,
-  period,
-  currency,
-  includedList
-}) => (
+const ProductWidget = ({ heading, description, includedList }) => (
   <motion.li
-    className="inline-block mr-10 mb-6 shadow-lg rounded-2xl w-64 bg-white dark:bg-gray-800 p-4"
+    className="l:inline-block ml-10 mr-10 mb-6 shadow-lg rounded-2xl md:w-auto l:w-128 bg-white dark:bg-gray-800 p-4"
     whileHover={{
       scale: 1.02,
       transition: { duration: 1 }
@@ -39,13 +32,6 @@ const ProductWidget = ({
     <p className="text-black dark:text-white text-3xl font-bold">{heading}</p>
     <p className="text-gray-500 dark:text-gray-300 text-sm mb-4">
       {description}
-    </p>
-    <p className="text-black dark:text-white  text-3xl font-bold">
-      {currency ? currency : '€'}
-      {price}
-    </p>
-    <p className="text-gray-500 dark:text-gray-300 text-sm mb-4">
-      {period ? period : 'Per session'}
     </p>
     {includedList && (
       <ul className="text-sm text-black dark:text-white w-full mt-6 mb-6">
@@ -69,7 +55,7 @@ export const ProductsPageTemplate = ({
 }) => (
   <div className="container mx-auto flex flex-col justify-between relative py-8">
     <div className="grid grid-cols-1">
-      <div>
+      <div className="mb-10 items-center">
         <About
           header={title}
           description={description}
@@ -77,7 +63,7 @@ export const ProductsPageTemplate = ({
         />
       </div>
 
-      <ul className="flex items-center">
+      <ul className="flex flex-wrap items-center">
         {productList.map((product, ix) => (
           <ProductWidget
             heading={product.heading}
@@ -110,9 +96,6 @@ ProductsPageTemplate.propTypes = {
     PropTypes.shape({
       title: PropTypes.string,
       description: PropTypes.string,
-      price: PropTypes.number,
-      period: PropTypes.string,
-      currency: PropTypes.string,
       callToAction: PropTypes.string,
       includedList: PropTypes.shape({
         description: PropTypes.string
@@ -180,9 +163,6 @@ export const pageQuery = graphql`
         productList {
           description
           name
-          price
-          currency
-          period
           includedList {
             description
           }

@@ -24,24 +24,19 @@ testimonials:
     quote: No company baaaby
     testimonialImage: /img/alina-grubnyak-uhHPgq6QFgE-unsplash.jpeg
   - name: aaa
-    quote: "123"
+    quote: '123'
     testimonialImage: /img/ales-krivec-HTs3iPHpPZs-unsplash.jpeg
 productList:
   - name: A first product
     description: |
       A description of this particular guy
-    price: 100
-    currency: $
     includedList:
       - description: Get this really great thing
       - description: And this other really lovely thing
       - description: One more super nice thing
-    period: Per month
   - name: A second product
     description: |
       Next description
-    price: 200
-    period: Per session
     includedList:
       - description: Get this really, really great thing
       - description: Get this really, really great thing
@@ -50,12 +45,9 @@ productList:
       - description: Another really excellent thing about this is
       - description: Get this really, really great thing
       - description: Another really excellent thing about this is
-    currency: €
   - name: A second product
     description: |
       Next description
-    price: 200
-    period: Per session
     includedList:
       - description: Get this really, really great thing
       - description: Get this really, really great thing
@@ -70,7 +62,6 @@ productList:
       - description: Another really excellent thing about this is
       - description: Get this really, really great thing
       - description: Another really excellent thing about this is
-    currency: $
   - name: A second product
     description: >
       Next description that is quite long Next description that is quite long
@@ -86,8 +77,6 @@ productList:
       description that is quite longNext description that is quite longNext
       description that is quite long Next description that is quite longNext
       description that is quite long Next description that is quite long
-    price: 200
-    period: Per session
     includedList:
       - description: Get this really, really great thing
       - description: Another really excellent thing about this is
@@ -103,5 +92,4 @@ productList:
       - description: Another really excellent thing about this is
       - description: Get this really, really great thing
       - description: Another really excellent thing about this is
-    currency: £
 ---
