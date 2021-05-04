@@ -14,6 +14,10 @@ testimonials:
     quote: Asas
     testimonialImage: /img/blog-index.jpg
     company: This should be optional, why isn't it
+  - name: Franko
+    quote: This is a quote! I swear!
+    testimonialImage: /img/charles-deluvio-rRWiVQzLm7k-unsplash.jpeg
+    company: Hmmm
 productList:
   - name: A first product
     description: |
