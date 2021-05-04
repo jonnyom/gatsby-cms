@@ -1,8 +1,10 @@
 ---
-title: Pricing page title
+title: ""
 image: /static/img/burning-man.jpeg
 templateKey: products-page
-description: |
+description: |-
+  # This is why contacting me would be great
+
   Here is a great big description about why you should use these products
 callToAction: Get in touch today
 testimonials:
