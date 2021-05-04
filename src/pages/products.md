@@ -21,6 +21,9 @@ testimonials:
   - name: Testing mc Testo
     quote: No company baaaby
     testimonialImage: /img/alina-grubnyak-uhHPgq6QFgE-unsplash.jpeg
+  - name: aaa
+    quote: "123"
+    testimonialImage: /img/ales-krivec-HTs3iPHpPZs-unsplash.jpeg
 productList:
   - name: A first product
     description: |
