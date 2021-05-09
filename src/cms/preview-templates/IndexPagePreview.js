@@ -8,7 +8,7 @@ const IndexPagePreview = ({ entry, getAsset }) => {
 
   if (data) {
     return (
-      <Layout location={''}>
+      <Layout location={{ href: 'localhost:8000/' }}>
         <IndexPageTemplate
           image={getAsset(data.image)}
           title={data.title}

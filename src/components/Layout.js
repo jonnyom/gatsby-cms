@@ -7,7 +7,7 @@ const Layout = ({ children, location, title }) => {
   const aboutRef = React.useRef();
 
   React.useEffect(() => {
-    if (aboutRef.current && location.href.includes('#')) {
+    if (aboutRef.current && location.href?.includes('#')) {
       aboutRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [aboutRef.current]);
