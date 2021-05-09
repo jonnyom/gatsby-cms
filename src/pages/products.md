@@ -7,6 +7,11 @@ description: |-
 
   Here is a great big description about why you should use these products
 callToAction: Get in touch today
+about:
+  title: Testing a product central thing!
+  description: This is a long description tion about stuff. It needs to be a
+    little bit longer for it to work, but yet, it works.
+  callToAction: Contact me.
 testimonials:
   - name: Jonny
     company: Kitman Labs
@@ -24,7 +29,7 @@ testimonials:
     quote: No company baaaby
     testimonialImage: /img/alina-grubnyak-uhHPgq6QFgE-unsplash.jpeg
   - name: aaa
-    quote: '123'
+    quote: "123"
     testimonialImage: /img/ales-krivec-HTs3iPHpPZs-unsplash.jpeg
 productList:
   - name: A first product
