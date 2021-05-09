@@ -46,49 +46,58 @@ const ProductWidget = ({ heading, description, includedList }) => (
   </motion.li>
 );
 
-export const ProductsPageTemplate = ({
-  title,
-  description,
-  productList,
-  callToAction,
-  testimonials
-}) => (
-  <div className="container mx-auto flex flex-col justify-between relative py-8">
-    <div className="grid grid-cols-1">
-      <div className="mb-10 items-center">
-        <About
-          header={title}
-          description={description}
-          callToAction={callToAction}
-        />
-      </div>
+export const ProductsPageTemplate = ({ about, productList, testimonials }) => {
+  return (
+    <div className="container mx-auto flex flex-col justify-between relative py-8">
+      <div className="grid grid-cols-1">
+        {about && (
+          <div className="mb-10 items-center">
+            <About
+              header={about.title}
+              description={about.description}
+              callToAction={about.callToAction}
+            />
+          </div>
+        )}
 
-      <ul className="flex flex-wrap items-center">
-        {productList.map((product, ix) => (
-          <ProductWidget
-            heading={product.heading}
-            description={product.description}
-            price={product.price}
-            period={product.period}
-            currency={product.currency}
-            includedList={product.includedList}
-            key={`${product.heading}-${ix}`}
-          />
-        ))}
-      </ul>
-      <PivotTestimonial testimonials={testimonials} />
+        {testimonials && (
+          <div className="mb-10 items-center">
+            <PivotTestimonial testimonials={testimonials} />
+          </div>
+        )}
+
+        <ul className="flex flex-wrap items-center">
+          {productList.map((product, ix) => (
+            <ProductWidget
+              heading={product.heading}
+              description={product.description}
+              price={product.price}
+              period={product.period}
+              currency={product.currency}
+              includedList={product.includedList}
+              key={`${product.heading}-${ix}`}
+            />
+          ))}
+        </ul>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 ProductsPageTemplate.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
+  about: PropTypes.shape({
+    title: PropTypes.string,
+    description: PropTypes.string,
+    callToAction: PropTypes.string
+  }),
   testimonials: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
       quote: PropTypes.string,
-      testimonialImage: PropTypes.oneOf([PropTypes.object, PropTypes.string]),
+      testimonialImage: PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.string
+      ]),
       company: PropTypes.string
     })
   ),
@@ -97,9 +106,11 @@ ProductsPageTemplate.propTypes = {
       title: PropTypes.string,
       description: PropTypes.string,
       callToAction: PropTypes.string,
-      includedList: PropTypes.shape({
-        description: PropTypes.string
-      })
+      includedList: PropTypes.arrayOf(
+        PropTypes.shape({
+          description: PropTypes.string
+        })
+      )
     })
   )
 };
@@ -113,10 +124,8 @@ const ProductsPage = ({ data, location }) => {
       title={`Products | ${data.site.siteMetadata.title}`}
     >
       <ProductsPageTemplate
-        title={frontmatter.title}
-        description={frontmatter.description}
+        about={frontmatter.about}
         productList={frontmatter.productList}
-        callToAction={frontmatter.callToAction}
         testimonials={frontmatter.testimonials}
       />
     </Layout>
@@ -145,9 +154,11 @@ export const pageQuery = graphql`
     }
     markdownRemark(frontmatter: { templateKey: { eq: "products-page" } }) {
       frontmatter {
-        title
-        description
-        callToAction
+        about {
+          title
+          description
+          callToAction
+        }
         testimonials {
           name
           company

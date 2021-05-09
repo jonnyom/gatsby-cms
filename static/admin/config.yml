@@ -58,13 +58,27 @@ collections:
               widget: 'hidden',
               default: 'products-page'
             }
-          - { label: Title, name: title, widget: string, required: false }
-          - { label: Description, name: description, widget: markdown }
-          - { label: 'Call To Action', name: callToAction, widget: string }
+          - {
+              label: About,
+              name: about,
+              widget: object,
+              required: false,
+              fields:
+                [
+                  { label: Title, name: title, widget: string },
+                  { label: Description, name: description, widget: markdown },
+                  {
+                    label: 'Call To Action',
+                    name: callToAction,
+                    widget: string
+                  }
+                ]
+            }
           - {
               label: Testimonials,
               name: testimonials,
               widget: list,
+              required: false,
               fields:
                 [
                   { label: Name, name: name, widget: string },

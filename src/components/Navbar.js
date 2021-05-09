@@ -70,7 +70,7 @@ const NavBar = ({ location }) => {
 
 const NavList = ({ active, checkActive, setActive }) => {
   const navClass =
-    'px-3 py-2 flex items-center leading-snug block border-b-2 border-transparent text-secondary hover:border-primary';
+    'text-lg px-3 py-2 flex items-center leading-snug block border-b-2 border-transparent text-secondary hover:border-primary';
 
   return (
     <>

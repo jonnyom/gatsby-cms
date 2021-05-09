@@ -78,7 +78,7 @@ export const TestimonialBig = ({ testimonial, isAnimating }) => {
 export const TestimonialSmall = ({ testimonial }) => (
   <motion.li
     layout
-    className="inline-block sm:mt-6 md:mr-4 bg-white dark:bg-gray-800 w-72 shadow-lg mx-auto rounded-xl p-4"
+    className="inline-block sm:mt-6 md:mr-4 mb-6 bg-white dark:bg-gray-800 w-72 shadow-lg mx-auto rounded-xl p-4"
   >
     <p className="text-gray-600 dark:text-white">
       <span className="font-bold text-secondary-500 text-lg">“</span>
@@ -129,20 +129,19 @@ export const PivotTestimonial = ({ testimonials }) => {
       <TestimonialBig
         testimonial={testimonials[bigTestimonial]}
         isAnimating={isAnimating}
+        key={bigTestimonial}
       />
       <motion.ul
         layout
         animate={{ x: isAnimating ? 100 : 0 }}
-        transition={{ ease: 'easeOut', duration: 2 }}
+        transition={{ ease: 'easeOut', duration: 0.75 }}
         className="flex flex-wrap container md:mx-auto md:px-64 sm:ml-2"
+        key={bigTestimonial - 1}
       >
         {testimonials
           .filter((_, ix) => ix !== bigTestimonial)
           .map((testimonial, ix) => (
-            <TestimonialSmall
-              testimonial={testimonial}
-              key={`small-testimonial-${ix}`}
-            />
+            <TestimonialSmall testimonial={testimonial} key={`${ix}`} />
           ))}
       </motion.ul>
     </AnimatePresence>

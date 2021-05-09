@@ -9,10 +9,8 @@ const ProductsPagePreview = ({ entry }) => {
     return (
       <Layout location={'/products'}>
         <ProductsPageTemplate
-          title={data.title}
-          description={data.description}
+          about={data.about}
           productList={data.productList}
-          callToAction={data.callToAction}
           testimonials={data.testimonials}
         />
       </Layout>
