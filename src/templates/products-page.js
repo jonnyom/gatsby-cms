@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { motion } from 'framer-motion';
-import { Layout, About } from '../components';
-import { PivotTestimonial } from '../components/Testimonial';
+import { Layout, About, Testimonial } from '../components';
 
 const ProductListItem = ({ description }) => (
   <li className="mb-3 flex items-center">
@@ -62,7 +61,7 @@ export const ProductsPageTemplate = ({ about, productList, testimonials }) => {
 
         {testimonials && (
           <div className="mb-10 items-center">
-            <PivotTestimonial testimonials={testimonials} />
+            <Testimonial testimonials={testimonials} />
           </div>
         )}
 

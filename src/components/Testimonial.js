@@ -113,7 +113,7 @@ export const TestimonialSmall = ({ testimonial }) => (
   </motion.li>
 );
 
-export const PivotTestimonial = ({ testimonials }) => {
+const PivotTestimonial = ({ testimonials }) => {
   //nextIndex = (currentIndex + 1)%array.length
   const [bigTestimonial, setBigTestimonial] = React.useState(0);
   const [isAnimating, setIsAnimating] = React.useState(false);
@@ -147,3 +147,5 @@ export const PivotTestimonial = ({ testimonials }) => {
     </AnimatePresence>
   );
 };
+
+export default PivotTestimonial;
