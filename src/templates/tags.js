@@ -7,12 +7,9 @@ const TagRoute = ({ location, data, pageContext }) => {
   const { edges: posts } = data.allMarkdownRemark;
 
   const tag = pageContext.tag;
-  const title = data.site.siteMetadata.title;
-  const totalCount = data.allMarkdownRemark.totalCount;
 
   return (
     <Layout location={location}>
-      <Helmet title={`${tag} | ${title}`} />
       <div className="container content">
         <div className="flex justify-center">
           <div className="column is-10 is-offset-1 mb-20">
