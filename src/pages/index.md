@@ -10,7 +10,7 @@ subTitle: Are you feeling overwhelmed? Blocked? Uninspired? Feeling a bit meh?
 image: /static/img/lads-with-computers.jpg
 callToAction: Work with Selina
 about:
-  title: Here is a message about me
+  title: About
   description: >-
     Selina McCarthy is an EMCC accredited coach with a diploma in Personal,
     Leadership and Executive Coaching from Kingstown College. She is also a
