@@ -3,14 +3,10 @@ callToActionUrl: contact
 heading: Great coaching, great coffee (lol)
 subheading: Support sustainable farming while enjoying a cup
 templateKey: index-page
-title: Less Stress, More Success - Existence 2021 edition
-subTitle: subtitle
+title: Do you want to lead a happier, more fulfilling life?
+subTitle: Are you feeling overwhelmed? Blocked? Uninspired? Feeling a bit meh?
 image: /static/img/lads-with-computers.jpg
 callToAction: Work with Selina
-testimonials:
-  - testimonialImage: /img/cmo-100.jpg
-  - testimonialImage: /img/chemex.jpg
-  - testimonialImage: /img/danielle-macinnes-IuLgi9PWETU-unsplash.jpeg
 about:
   title: Here is a message about me
   description: >-
@@ -34,6 +30,10 @@ about:
       Having lived in 10 different cities across 3 continents, she has a deep understanding, and passion for working with people from diverse backgrounds. She thrives in a fast-paced business environment, and has a passion for culture and helping people perform at their best.\
       \
       She's also an active volunteer with Feed Our Homeless, a surfer, a cyclist and a yogi.
-  callToAction: Another CTA
+  callToAction: Book a call
+testimonials:
+  - testimonialImage: /img/cmo-100.jpg
+  - testimonialImage: /img/chemex.jpg
+  - testimonialImage: /img/danielle-macinnes-IuLgi9PWETU-unsplash.jpeg
 description: Mo money mo problems
 ---
