@@ -21,7 +21,7 @@ const About = ({ header, description, callToAction, callToActionUrl }) => (
             <Link
               to={`/${callToActionUrl ? callToActionUrl : 'contact'}`}
               type="button"
-              className="py-2 px-4 bg-secondary hover:bg-primary text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+              className="mb-10 sm:ml-56 md:ml-10 py-2 px-4 bg-secondary hover:bg-primary text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg "
             >
               {callToAction}
             </Link>

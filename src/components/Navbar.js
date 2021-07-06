@@ -10,6 +10,21 @@ const links = [
     tabName: 'about'
   },
   {
+    link: 'individual-coaching',
+    name: 'Individual Coaching',
+    tabName: 'individual-coaching'
+  },
+  {
+    link: 'corporate-wellbeing',
+    name: 'Corporate Wellbeing',
+    tabName: 'corporate-wellbeing'
+  },
+  {
+    link: 'online-resources',
+    name: 'Online Resources',
+    tabName: 'online-resources'
+  },
+  {
     link: 'contact',
     name: 'Contact',
     tabName: 'contact'

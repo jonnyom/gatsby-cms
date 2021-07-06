@@ -48,6 +48,60 @@ collections:
           - { label: Title, name: title, widget: string }
           - { label: Description, name: description, widget: markdown }
           - { label: Calendly URL, name: widgetUrl, widget: string }
+      - file: 'src/pages/individual-coaching.md'
+        label: 'Individual Coaching'
+        name: 'individual_coaching'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'individual-coaching-page'
+            }
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: markdown }
+          - {
+              label: 'Call To Action',
+              name: callToAction,
+              widget: string,
+              required: false
+            }
+      - file: 'src/pages/corporate-wellbeing.md'
+        label: 'Corporate Wellbeing'
+        name: 'corporate_wellbeing'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'corporate-wellbeing-page'
+            }
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: markdown }
+          - {
+              label: 'Call To Action',
+              name: callToAction,
+              widget: string,
+              required: false
+            }
+      - file: 'src/pages/online-resources.md'
+        label: 'Online Resources'
+        name: 'online_resource'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'online-resources-page'
+            }
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: markdown }
+          - {
+              label: 'Call To Action',
+              name: callToAction,
+              widget: string,
+              required: false
+            }
       - file: 'src/pages/products.md'
         label: 'Products'
         name: 'products'
@@ -70,7 +124,8 @@ collections:
                   {
                     label: 'Call To Action',
                     name: callToAction,
-                    widget: string
+                    widget: string,
+                    required: false
                   }
                 ]
             }
