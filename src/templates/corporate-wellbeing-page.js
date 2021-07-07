@@ -34,7 +34,7 @@ const CorporateWellbeingPage = ({ data, location }) => {
   return (
     <Layout
       location={location}
-      title={`Individual Coaching | ${data.site.siteMetadata.title}`}
+      title={`Corporate Wellbeing | ${data.site.siteMetadata.title}`}
     >
       <CorporateWellbeingPageTemplate
         title={title}

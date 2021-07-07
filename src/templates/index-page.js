@@ -36,7 +36,6 @@ export const IndexPageTemplate = React.forwardRef(
             header={about.title}
             description={about.description}
             callToAction={about.callToAction}
-            listElements={about.breakdownList}
             callToActionUrl={callToActionUrl}
           />
         </div>
