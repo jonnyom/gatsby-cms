@@ -2,7 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import { CallToActionIntro, Layout, About } from '../components';
+import {
+  CallToActionIntro,
+  Layout,
+  About,
+  TypesOfCoaching
+} from '../components';
 
 export const IndexPageTemplate = React.forwardRef(
   ({ image, title, subtitle, callToAction, callToActionUrl, about }, ref) => {
@@ -31,6 +36,10 @@ export const IndexPageTemplate = React.forwardRef(
             />
           </div>
         </div>
+        <div className="container mx-auto px-6 mb-64">
+          <TypesOfCoaching />
+        </div>
+
         <div ref={ref}>
           <About
             header={about.title}
