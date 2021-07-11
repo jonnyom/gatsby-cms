@@ -12,6 +12,7 @@ const CorporateWellbeingPagePreview = ({ entry }) => {
           title={data.title}
           description={data.description}
           callToAction={data.callToAction}
+          testimonials={data.testimonials}
         />
       </Layout>
     );

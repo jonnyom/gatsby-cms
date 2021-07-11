@@ -32,9 +32,17 @@ about:
 
     She's also an active volunteer with Feed Our Homeless, a surfer, a cyclist and a yogi.
   callToAction: Book a call
-testimonials:
-  - testimonialImage: /img/cmo-100.jpg
-  - testimonialImage: /img/chemex.jpg
-  - testimonialImage: /img/danielle-macinnes-IuLgi9PWETU-unsplash.jpeg
+testimonials: []
+coachingTypes:
+  - linkToPage: true
+    title: Individual coaching
+    description: individual coaching
+    coachingUrl: individual-coaching
+  - linkToPage: true
+    title: Corporate Wellbeing
+    description: Corporate wellbeing sure is lovely
+  - linkToPage: false
+    title: This doesn't link anywhere
+    description: Waheeyy
 description: Mo money mo problems
 ---

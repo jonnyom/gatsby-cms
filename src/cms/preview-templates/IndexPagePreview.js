@@ -16,6 +16,8 @@ const IndexPagePreview = ({ entry, getAsset }) => {
           callToAction={data.callToAction}
           callToActionUrl={data.callToActionUrl}
           about={data.about}
+          testimonials={data.testimonials}
+          coachingTypes={data.coachingTypes}
         />
       </Layout>
     );

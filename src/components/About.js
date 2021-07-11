@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import { MarkdownContent } from './Content';
 
 const About = ({ header, description, callToAction, callToActionUrl }) => (
-  <div className="mt-24 md:container md:mx-auto leading-normal tracking-normal">
+  <div className="mt-12 md:container md:mx-auto leading-normal tracking-normal">
     <div className="flex flex-wrap">
       {header && (
         <h2 className="mx-auto font-bold mb-32 break-normal text-center text-primary text-2xl md:text-5xl">

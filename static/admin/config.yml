@@ -66,6 +66,28 @@ collections:
               widget: string,
               required: false
             }
+          - {
+              label: Testimonials,
+              name: testimonials,
+              widget: list,
+              required: false,
+              fields:
+                [
+                  { label: Name, name: name, widget: string },
+                  {
+                    label: Company,
+                    name: company,
+                    required: false,
+                    widget: string
+                  },
+                  { label: Quote, name: quote, widget: string },
+                  {
+                    label: 'Testimonial image',
+                    name: 'testimonialImage',
+                    widget: image
+                  }
+                ]
+            }
       - file: 'src/pages/corporate-wellbeing.md'
         label: 'Corporate Wellbeing'
         name: 'corporate-wellbeing'
@@ -83,51 +105,6 @@ collections:
               name: callToAction,
               widget: string,
               required: false
-            }
-      - file: 'src/pages/online-resources.md'
-        label: 'Online Resources'
-        name: 'online-resource'
-        fields:
-          - {
-              label: 'Template Key',
-              name: 'templateKey',
-              widget: 'hidden',
-              default: 'online-resources-page'
-            }
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: markdown }
-          - {
-              label: 'Call To Action',
-              name: callToAction,
-              widget: string,
-              required: false
-            }
-      - file: 'src/pages/products.md'
-        label: 'Products'
-        name: 'products'
-        fields:
-          - {
-              label: 'Template Key',
-              name: 'templateKey',
-              widget: 'hidden',
-              default: 'products-page'
-            }
-          - {
-              label: About,
-              name: about,
-              widget: object,
-              required: false,
-              fields:
-                [
-                  { label: Title, name: title, widget: string },
-                  { label: Description, name: description, widget: markdown },
-                  {
-                    label: 'Call To Action',
-                    name: callToAction,
-                    widget: string,
-                    required: false
-                  }
-                ]
             }
           - {
               label: Testimonials,
@@ -151,27 +128,53 @@ collections:
                   }
                 ]
             }
+      - file: 'src/pages/online-resources.md'
+        label: 'Online Resources'
+        name: 'online-resource'
+        fields:
           - {
-              label: Product List,
-              name: productList,
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'online-resources-page'
+            }
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: markdown }
+          - {
+              label: 'Call To Action',
+              name: callToAction,
+              widget: string,
+              required: false
+            }
+      - file: 'src/pages/testimonials.md'
+        label: 'Testimonials'
+        name: 'testimonials'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'testimonials'
+            }
+          - {
+              label: Testimonials,
+              name: testimonials,
               widget: list,
+              required: true,
               fields:
                 [
                   { label: Name, name: name, widget: string },
-                  { label: Description, name: description, widget: text },
                   {
-                    label: What's Included,
-                    name: includedList,
-                    widget: list,
+                    label: Company,
+                    name: company,
                     required: false,
-                    fields:
-                      [
-                        {
-                          label: Description,
-                          name: description,
-                          widget: string
-                        }
-                      ]
+                    widget: string
+                  },
+                  { label: Quote, name: quote, widget: string },
+                  {
+                    label: 'Testimonial image',
+                    name: 'testimonialImage',
+                    widget: image
                   }
                 ]
             }
@@ -208,6 +211,50 @@ collections:
                     name: callToAction,
                     widget: string,
                     required: false
+                  }
+                ]
+            }
+          - {
+              label: Types of Coaching,
+              name: coachingTypes,
+              widget: list,
+              fields:
+                [
+                  { label: Title, name: title, widget: string },
+                  { label: Description, name: description, widget: string },
+                  {
+                    label: Link (defaults to page title),
+                    name: coachingUrl,
+                    required: false,
+                    widget: string
+                  },
+                  {
+                    label: Link to page,
+                    name: linkToPage,
+                    widget: boolean,
+                    default: true
+                  }
+                ]
+            }
+          - {
+              label: Testimonials,
+              name: testimonials,
+              widget: list,
+              required: false,
+              fields:
+                [
+                  { label: Name, name: name, widget: string },
+                  {
+                    label: Company,
+                    name: company,
+                    required: false,
+                    widget: string
+                  },
+                  { label: Quote, name: quote, widget: string },
+                  {
+                    label: 'Testimonial image',
+                    name: 'testimonialImage',
+                    widget: image
                   }
                 ]
             }
