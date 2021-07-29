@@ -8,8 +8,6 @@ description: >-
   **€**
 
 
-
-
   Mental health 
 
 
@@ -50,6 +48,17 @@ description: >-
 
 
   Check out my instagram
+
+
+
+
+  Individual private coaching packages:
+
+
+  1-hour session: 70 euro
+
+
+  Package of 4 sessions (recommended): 250
 callToAction: Call me if u want xo
 testimonials:
   - name: Jonny
