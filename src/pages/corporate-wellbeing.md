@@ -11,7 +11,7 @@ description: >-
   corporate wellbeing stats - all the gallup stuff, the HSE bits. Link the studies here if needs be - maybe add in a folder of links here?
 
 
-  high sttrition rates
+  high attrition rates?
 
 
   know wellbeing is impotant but dont know where to start?
@@ -32,12 +32,13 @@ description: >-
   Leadership Training
 
 
+  Executive Coaching
+
+
   Wellbeing Workshops
 
 
-  Coaching
-
-
+  Wellbeing Coaching
 
 
   **Why me:**
@@ -46,10 +47,29 @@ description: >-
   My experience working in the corporate world
 
 
-  LInk to my linkedin page
+  Link to my linkedin page
 
 
   My credentials
+
+
+
+
+  DOLLA
+
+
+  Tailored packages, depending on your needs. Hourly rates are roughly €120 per hour to give an indication of potential costs.
+
+
+
+
+  1.5 hour workshop = €300
+
+
+  half day workshop = €500
+
+
+  Full day workshop = €1000
 callToAction: Get in touch
 testimonials:
   - name: Carla
