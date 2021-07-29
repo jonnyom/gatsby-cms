@@ -5,3 +5,4 @@ export { default as About } from './About';
 export { default as CalendlyWidget } from './CalendlyWidget';
 export { default as Testimonial } from './Testimonial';
 export { default as TypesOfCoaching } from './TypesOfCoaching';
+export { default as ContactForm } from './ContactForm';

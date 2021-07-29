@@ -7,7 +7,8 @@ import {
   Layout,
   About,
   TypesOfCoaching,
-  Testimonial
+  Testimonial,
+  ContactForm
 } from '../components';
 
 export const IndexPageTemplate = React.forwardRef(
@@ -25,7 +26,7 @@ export const IndexPageTemplate = React.forwardRef(
     ref
   ) => {
     return (
-      <>
+      <div id="landing-page">
         <div className="dark:bg-gray-800 bg-white relative overflow-hidden h-screen">
           {image.childImageSharp ? (
             <Img
@@ -68,12 +69,16 @@ export const IndexPageTemplate = React.forwardRef(
           </div>
         </div>
 
+        <div className="container mx-auto flex flex-col items-center justify-between relative py-8">
+          <ContactForm />
+        </div>
+
         {testimonials.length > 0 && (
           <div className="mt-10 items-center">
             <Testimonial testimonials={testimonials} />
           </div>
         )}
-      </>
+      </div>
     );
   }
 );
