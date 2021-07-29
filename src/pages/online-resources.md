@@ -17,5 +17,5 @@ description: |-
   # Social Media links
 
   Insta, Linkedin, Fbook, Meetup
-callToAction: Contact me.
+callToAction: Sign up to my newsletter?
 ---
