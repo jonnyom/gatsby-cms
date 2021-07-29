@@ -11,6 +11,15 @@ description: >-
   corporate wellbeing stats - all the gallup stuff, the HSE bits. Link the studies here if needs be - maybe add in a folder of links here?
 
 
+  high sttrition rates
+
+
+  know wellbeing is impotant but dont know where to start?
+
+
+  have a wellbeing budget but need help calculating ROI?
+
+
   **Services:**
 
 
@@ -27,6 +36,20 @@ description: >-
 
 
   Coaching
+
+
+
+
+  **Why me:**
+
+
+  My experience working in the corporate world
+
+
+  LInk to my linkedin page
+
+
+  My credentials
 callToAction: Get in touch
 testimonials:
   - name: Carla
