@@ -2,33 +2,54 @@
 templateKey: individual-coaching-page
 title: Individual coaching
 description: >-
-  A very long description about individual coaching.
+  **coaching process**
+
+
+  **€**
 
 
 
 
-  **Individual coaching is bold**
+  Mental health 
 
 
+  Are you feeling xyz
 
 
-  *Individual coaching is italics*
+  Blocked
 
 
+  uninspired
+
+
+  lost
+
+
+  in need of support
+
+
+  want a plan feel more empowered
+
+
+  figure out your life path
+
+
+  live with intention etc etc
 
 
   ![Individual coaching is an image](/img/blog-index.jpg "Individual coaching image")
 
 
-  I can put things after the image
+  Here I want to explain a bit more about coaching, what it provides, what to expect. 
 
 
+  My Approach
 
 
-  > This should be a quote, and it is!
+  Serving selina realness
 
 
-  ### This is a heading
+  Check out my instagram
 callToAction: Call me if u want xo
 testimonials:
   - name: Jonny
