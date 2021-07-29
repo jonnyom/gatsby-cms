@@ -1,8 +1,21 @@
 ---
 templateKey: online-resources-page
-title: Testing a product central thing!
+title: Other resources
 description: |-
-  This is a long description tion about stuff. It needs to be a
-   little bit longer for it to work, but yet, it works.
+  # Morning Club
+
+  Here's a load of info about my journalling and meditation club
+
+
+
+  # Podcast
+
+  Here's some info about the podcast
+
+
+
+  # Social Media links
+
+  Insta, Linkedin, Fbook, Meetup
 callToAction: Contact me.
 ---
